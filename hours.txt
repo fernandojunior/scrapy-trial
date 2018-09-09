@@ -1,3 +1,4 @@
 
-- (ref issue #7) Configure simple Kanban board with Zenhub (0.5h)
-- (ref issue #2) Create initial project structure (0.5h)
+- (ref #7) Configure simple Kanban board with Zenhub (0.5h)
+- (ref #2) Create initial project structure (0.5h)
+- (refs #3 #5) Configure test and lint lib

@@ -1,10 +1,8 @@
 import setuptools
-import sys
-import os
 
-try: # for pip >= 10
+try:  # for pip >= 10
     from pip._internal.req import parse_requirements as parse
-except ImportError: # for pip <= 9.0.3
+except ImportError:  # for pip <= 9.0.3
     from pip.req import parse_requirements as parse
 
 
@@ -18,7 +16,7 @@ setuptools.setup(
     author='Fernando Felix do Nascimento Junior',
     author_email='fernandofelix@copin.ufcg.edu.br',
     description='A Web Spider',
-    url='https://bitbucket.org/scrapinghub/fernando-do-nascimento-junior-scrapy-trial',
+    url='https://bitbucket.org/scrapinghub/fernando-do-nascimento-junior-scrapy-trial',  # noqa
     platforms='any',
     license='None',
     packages=find_packages(exclude=['tests']),

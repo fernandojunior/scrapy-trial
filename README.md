@@ -2,22 +2,15 @@
 
 ## Requirements
 
+- Linux
 - Python 3.5+
 - Virtualenv
 
 ## Installation
 
-Run the following commands in the terminal to create a virtual environment and install requirements:
-
+Run the following commands in the terminal to create a virtual environment and pip install requirements:
 ```sh
-# create virtualenv
-sudo apt-get -y install python3-pip
-sudo pip3 install virtualenv
-virtualenv -p python3 .env && . .env/bin/activate
-
-# install python requirements
-pip install --upgrade pip
-pip install -r requirements.txt
+make env && make install
 ```
 
 ## Usage
@@ -29,7 +22,12 @@ TODO
 
 To test the spider:
 ```sh
-TODO
+make test
+```
+
+To check the source code lint (PEP8):
+```sh
+make lint
 ```
 
 To deploy the spider in Scrapy Cloud:

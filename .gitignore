@@ -1,9 +1,11 @@
 __pycache__/
-*.py[cod]
 **.env*/
 **results/
 **build/
 *.egg*/
 **dist/
 **tmp/
+.pytest_cache/
 **.pth
+**.log
+*.py[cod]
