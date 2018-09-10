@@ -9,3 +9,4 @@ __pycache__/
 **.pth
 **.log
 *.py[cod]
+**.json

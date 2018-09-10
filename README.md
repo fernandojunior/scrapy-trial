@@ -17,7 +17,7 @@ make env && make install
 
 To run the spider:
 ```sh
-TODO
+make run
 ```
 
 To test the spider:
