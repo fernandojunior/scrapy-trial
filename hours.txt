@@ -2,7 +2,8 @@
 - (issue #7) Configure simple Kanban board with Zenhub (0.5h)
 - (issue #2) Create initial project structure (0.5h)
 - (issue #3 #5) Configure test and lint lib (0.5h)
-- (issue #3 #5) Configure test and lint lib (0.5h)
 - (issue #6) Learn & Configure Scrapy
 	- (commit 91065d) Some basic tests in museum website to learn scrapy (~2.5h)
 	- (commit f05fbf) Simple test to parse arts from a category (~2.5h)
+- (issue #8) Create Spider
+    - (commit ce7a1f) Create functional spider. Need compute path trace for each art (2.5h)
