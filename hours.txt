@@ -5,3 +5,4 @@
 - (issue #3 #5) Configure test and lint lib (0.5h)
 - (issue #6) Learn & Configure Scrapy
 	- (commit 91065d) Some basic tests in museum website to learn scrapy (~2.5h)
+	- (commit f05fbf) Simple test to parse arts from a category (~2.5h)
