@@ -1,5 +1,5 @@
 import re
-from config import BASE_URL
+from art_spider.spiders.arts.config import BASE_URL
 
 
 def get_tree_path(response):
@@ -35,8 +35,17 @@ def get_dimensions_in_cm(str_dimensions):
 
         dimensions = re.sub('[^xX0-9\.]', '', dimensions)
         dimensions = dimensions.split('x')
-        width = float(dimensions[0]) if len(dimensions) > 0 else None
-        height = float(dimensions[1]) if len(dimensions) > 1 else None
+
+        try:
+            width = float(dimensions[0]) if len(dimensions) > 0 else None
+        except:
+            pass
+        
+        try:
+            height = float(dimensions[1]) if len(dimensions) > 1 else None
+        except:
+            pass
+        
 
     return (width, height)
 

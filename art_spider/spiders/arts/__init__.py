@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 import scrapy
-from utils import parse_art_page, get_page_categories, get_tree_path
-from config import BASE_URL, START_CATEGORIES
+from art_spider.spiders.arts.utils import parse_art_page, get_page_categories, get_tree_path
+from art_spider.spiders.arts.config import BASE_URL, START_CATEGORIES
 
 
-class QuotesSpider(scrapy.Spider):
-    name = "quotes"
+class ArtsSpider(scrapy.Spider):
+    name = "arts"
     start_urls = [
         BASE_URL + '/browse/'
     ]

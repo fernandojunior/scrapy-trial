@@ -7,8 +7,8 @@ from scrapy.selector import Selector
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.abspath(os.path.join(TEST_DIR, os.pardir))
-sys.path.insert(0, PROJECT_DIR + '/src')
-from src.utils import parse_art_page, get_dimensions_in_cm  # noqa
+sys.path.insert(0, PROJECT_DIR + '/art_spider')
+from art_spider.spiders.arts.utils import parse_art_page, get_dimensions_in_cm  # noqa
 
 BASE_URL = 'http://pstrial-2018-05-21.toscrape.com'
 BROWSE_PATH = '/browse/'

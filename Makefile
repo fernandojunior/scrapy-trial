@@ -53,4 +53,4 @@ test:
 
 run:
 	test -f arts.json && rm arts.json || echo "arts.json doesn't exists"
-	. .env/bin/activate && scrapy runspider src/spider.py -o arts.json
+	. .env/bin/activate && scrapy crawl arts -o arts.json
