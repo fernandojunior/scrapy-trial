@@ -38,6 +38,10 @@ shub login
 shub deploy
 ```
 
+## Scrapinghub Cloud Job
+
+![scrapinghub-cloud-job.png](scrapinghub-cloud-job.png)
+
 ## Author
 
 - Fernando Felix do Nascimento Junior
