@@ -39,8 +39,8 @@ shub deploy
 ```
 
 ## Scrapinghub Cloud Job
+See spider job status in [Scrapinghub Cloud]((https://app.scrapinghub.com/p/342867/1)) (Preview: `scrapinghub-cloud-job.png`).
 
-![scrapinghub-cloud-job.png](scrapinghub-cloud-job.png)
 
 ## Author
 
