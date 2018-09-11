@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import re
 from art_spider.spiders.arts.config import BASE_URL
 
