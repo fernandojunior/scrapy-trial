@@ -1,8 +1,14 @@
+import os
+import sys
 import pytest  # noqa
 from six.moves.urllib.request import urlopen
 from six.moves.urllib.parse import urljoin
 from scrapy.selector import Selector
-from src.utils import parse_art_page, get_dimensions_in_cm
+
+TEST_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.abspath(os.path.join(TEST_DIR, os.pardir))
+sys.path.insert(0, PROJECT_DIR + '/src')
+from src.utils import parse_art_page, get_dimensions_in_cm  # noqa
 
 BASE_URL = 'http://pstrial-2018-05-21.toscrape.com'
 BROWSE_PATH = '/browse/'
@@ -11,10 +17,7 @@ BROWSE_URL = urljoin(BASE_URL, BROWSE_PATH)
 
 def follow(absolute_url, callback):
     response = get_response(absolute_url)
-    meta = dict()
-    meta['url'] = absolute_url
-    meta['path'] = ['Summertime', 'Wrapper From', 'Ao Shu']
-    return callback(response, meta)
+    return callback(response)
 
 
 def get_response(url):

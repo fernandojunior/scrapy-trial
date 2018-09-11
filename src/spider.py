@@ -1,42 +1,44 @@
 import scrapy
-from utils import parse_art_page, get_page_categories
+from utils import parse_art_page, get_page_categories, get_tree_path
+from config import BASE_URL, START_CATEGORIES
 
 
 class QuotesSpider(scrapy.Spider):
     name = "quotes"
     start_urls = [
-        # 'http://pstrial-2018-05-21.toscrape.com/browse/insunsh',
-        # 'http://pstrial-2018-05-21.toscrape.com/browse/summertime',
-        'http://pstrial-2018-05-21.toscrape.com/browse/summertime/rossignolnachtigall'
+        BASE_URL + '/browse/'
     ]
 
     def parse_art_pages(self, response):
-        art_links = response.css('a[href*=item]::attr("href")').extract()
+        headers = response.request.headers
+        art_urls = response.css('a[href*=item]::attr("href")').extract()
 
-        if len(art_links) == 0:
+        if len(art_urls) == 0:
             return None
 
-        for art_link in art_links:
-            extra_info = {'url': art_link, 'path': 'test'}
-            callback = lambda response: parse_art_page(response, extra_info)
-            yield response.follow(art_link, callback)
+        for art_url in art_urls:
+            art_url = BASE_URL + art_url
+            yield response.follow(art_url, parse_art_page, headers=headers)
 
-        next_page = response.css('a:contains(Next)::attr("href")').extract_first()
-        if next_page is not None:
-            yield response.follow(next_page, self.parse_art_pages)
+        next_url = response.css('a:contains(Next)::attr("href")').extract_first()
+        if next_url is not None:
+            next_url = BASE_URL + next_url
+            yield response.follow(next_url, self.parse_art_pages, headers=headers)
 
     def parse(self, response):
+        headers = response.request.headers
+        tree_path = get_tree_path(response)
         categories = get_page_categories(response)
+
+        if len(tree_path) == 0:  # if browse tree depth == 0
+            categories = list(filter(lambda c: c['name'] in START_CATEGORIES, categories))
 
         if len(categories) == 0:
             for art_request in self.parse_art_pages(response):
                 yield art_request
         else:
-            for key, category in categories.items():
-                link = category['link']
-                sublinks = category['sublinks']
-                if len(sublinks) > 0:
-                    for sublink in sublinks:
-                        yield response.follow(sublink, self.parse_art_pages)
-                else:
-                    yield response.follow(link, self.parse_art_pages)
+            for category in categories:
+                name = category['name']
+                url = category['url']
+                headers = {'tree_path': tree_path.copy() + [name]}
+                yield response.follow(url, self.parse, headers=headers)
