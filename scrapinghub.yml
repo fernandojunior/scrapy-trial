@@ -1,6 +1,6 @@
 projects:
     default: 12345
 stacks:
-    default: scrapy:1.5.1-py3
+    default: scrapy:1.5-py3
 requirements:
   file: requirements.txt

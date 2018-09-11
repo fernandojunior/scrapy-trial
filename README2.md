@@ -32,9 +32,10 @@ make lint
 
 To deploy the spider in Scrapy Cloud:
 ```sh
+. .env/bin/activate
 pip install shub
 shub login
-shub deploy <your_project_id_here>
+shub deploy
 ```
 
 ## Author
