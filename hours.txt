@@ -7,3 +7,4 @@
 	- (commit f05fbf) Simple test to parse arts from a category (~2.5h)
 - (issue #8) Create Spider
     - (commit ce7a1f) Create functional spider. Need compute path trace for each art (2.5h)
+    - (commit 611039) Compute tree path for each art (1h)
