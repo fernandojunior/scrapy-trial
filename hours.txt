@@ -8,3 +8,4 @@
 - (issue #8) Create Spider
     - (commit ce7a1f) Create functional spider. Need compute path trace for each art (2.5h)
     - (commit 611039) Compute tree path for each art (1h)
+- (issue #1) Learn & Configure Scrapinghub Cloud (1.5h)
